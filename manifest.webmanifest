@@ -1,0 +1,52 @@
+{
+ "name": "764 CL4N",
+ "short_name": "764CL4N",
+ "description": "HVH Team — состав, клипы, результаты и Discord",
+ "start_url": "./",
+ "display": "standalone",
+ "background_color": "#07080c",
+ "theme_color": "#8b0f1a",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "id": "./",
+ "scope": "./",
+ "lang": "ru",
+ "shortcuts": [
+  {
+   "name": "Состав",
+   "url": "./#roster"
+  },
+  {
+   "name": "Заявка в клан",
+   "url": "./#apply"
+  },
+  {
+   "name": "Результаты",
+   "url": "./#results"
+  }
+ ],
+ "categories": [
+  "games",
+  "social"
+ ],
+ "orientation": "portrait-primary",
+ "prefer_related_applications": false
+}

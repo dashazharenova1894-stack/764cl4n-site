@@ -1,0 +1,64 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>764 CL4N — Loader</title>
+<link rel="icon" href="favicon.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html,body{height:100%}
+body{--a:#e5333f;--a2:#8b0f1a;background:#090b12;color:#dfe3ee;font:500 15px/1.45 Montserrat,Segoe UI,sans-serif;display:flex;flex-direction:column;overflow:hidden;user-select:none;position:relative}
+body.blue{--a:#1ca7e0;--a2:#0b5f86}
+.bg{position:absolute;inset:0;z-index:0;background:radial-gradient(520px 340px at 78% 70%,color-mix(in srgb,var(--a) 22%,transparent),transparent 70%),radial-gradient(420px 300px at 10% 30%,rgba(60,70,110,.28),transparent 70%),linear-gradient(180deg,#0b0e18,#080a10)}
+.bg:after{content:'';position:absolute;right:-40px;top:40px;width:420px;height:420px;background:url(favicon.png) center/contain no-repeat;opacity:.05;filter:blur(1px)}
+header,main,footer{position:relative;z-index:1}
+header{height:96px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:linear-gradient(180deg,#0c1220,#0a0f1b);border-bottom:2px solid transparent;border-image:linear-gradient(90deg,transparent,var(--a),transparent) 1}
+.brand{display:flex;align-items:center;gap:14px;font-weight:800;font-size:30px;letter-spacing:.02em}.brand img{width:46px;height:46px;filter:drop-shadow(0 0 10px var(--a))}.brand b{color:var(--a)}
+.usr{all:unset;cursor:pointer;display:flex;align-items:center;gap:14px;font-weight:700;font-size:17px}.usr:hover{color:#fff}
+#av{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 24px Montserrat,sans-serif;font-style:normal;color:#fff;background:linear-gradient(135deg,var(--a),var(--a2));box-shadow:0 0 18px color-mix(in srgb,var(--a) 50%,transparent)}
+main{flex:1;min-height:0;display:flex;padding:22px 28px 8px}
+#tabs{width:180px;flex:none;border-right:1px solid #1d2535;padding-right:22px;display:flex;flex-direction:column;gap:12px;align-items:flex-end;text-align:right}
+#tabs h3{font-size:19px;font-weight:700;color:var(--a);margin-bottom:6px}
+#tabs button{all:unset;cursor:pointer;font-size:17px;color:#6f7a92;font-weight:600;padding:4px 0}#tabs button:hover{color:#b9c2d6}#tabs button.on{color:var(--a)}
+section{flex:1;min-width:0;padding-left:30px;overflow:auto}
+h2{font-size:19px;font-weight:700;color:var(--a);margin-bottom:8px}section>h2:not(:first-child){margin-top:26px}
+#desc{font-size:15px;line-height:1.5;color:#e8ebf4;min-height:92px}
+ul{list-style:none;font-size:14.5px;line-height:1.7;color:#d3d8e6}li:before{content:'- ';color:var(--a)}
+footer{height:104px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 28px 0 238px;border-top:1px solid #131a28}
+#s1,#s2{font-size:15px;font-weight:600}#s2{margin-top:2px}#s2.er,#s1.er{color:#ff7b86}#s2.ok b{color:#47e08e}
+#go{all:unset;cursor:pointer;position:relative;overflow:hidden;width:210px;height:58px;display:flex;align-items:center;justify-content:center;background:var(--a);color:#fff;font-weight:800;font-size:19px;letter-spacing:.04em;border-radius:3px;box-shadow:0 8px 26px color-mix(in srgb,var(--a) 38%,transparent)}
+#go:hover{filter:brightness(1.1)}#go[disabled]{background:#171d2c;color:#4f5973;box-shadow:none;cursor:default}
+#gb{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(255,255,255,.25)}#gl{position:relative}
+@media(max-width:640px){main{flex-direction:column}#tabs{width:auto;border:0;flex-direction:row;flex-wrap:wrap;align-items:center;text-align:left;padding:0 0 10px}footer{padding-left:28px}section{padding-left:0}}
+.tbar{display:none;position:relative;z-index:3;height:28px;flex:none;background:#04060c;align-items:center;justify-content:center;font:700 13px Montserrat,Segoe UI,sans-serif;letter-spacing:.02em;-webkit-app-region:drag}
+body.el .tbar{display:flex}.tbar b{position:absolute;right:0;top:0;width:44px;height:28px;display:grid;place-items:center;font-size:17px;cursor:pointer;-webkit-app-region:no-drag}.tbar b:hover{background:#c42b1c}
+body.el .usr,body.el #tabs button,body.el #go{-webkit-app-region:no-drag}
+header{background:linear-gradient(180deg,#0a1626,#09121f)!important}
+</style></head><body>
+<div class="tbar">764 CL4N<b id="xc" title="Закрыть">✕</b></div><div class="bg"></div>
+<header><div class="brand"><img src="favicon.png" alt="">764 <b>CL4N</b></div><button class="usr" id="usr" title="Сменить ник"><span id="nick">Гость</span><i id="av">?</i></button></header>
+<main><nav id="tabs"><h3>Меню</h3><button class="on" data-k="site">Сайт клана</button><button data-k="roster">Состав</button><button data-k="apply">Заявка</button><button data-k="dc">Discord</button></nav>
+<section><h2>Описание</h2><p id="desc"></p><h2>Список изменений (<span id="date">04.10.2026</span>)</h2>
+<ul><li>Новый лоудер с проверкой связи и версии</li><li>3D-эффект при прокрутке и объект в шапке</li><li>Нижнее меню на телефоне, кнопка «Ещё»</li><li>Настоящий онлайн: на сайте и в Discord</li><li>Защита сайта и формы заявки</li></ul></section></main>
+<footer><div><div id="s1">Подключение…</div><div id="s2">Статус: —</div></div><button id="go" disabled><i id="gb"></i><span id="gl">Запустить</span></button></footer>
+<script>if(/Electron/.test(navigator.userAgent)){document.body.classList.add("el");document.addEventListener("DOMContentLoaded",function(){var x=document.getElementById("xc");if(x)x.onclick=function(){window.close()}})}
+var HUB='https://cl4n-hub.764cl4n.workers.dev',DC='https://discord.gg/Bf2fKNza',$=function(i){return document.getElementById(i)},ok=false,cur='site',busy=0,
+T={site:['Сайт 764 CL4N: состав, клипы, результаты матчей, достижения и заявка в клан. Онлайн клана, новости от бота и всё остальное в одном месте.','./'],
+roster:['Состав команды: ники, роли и ссылки на профили игроков 764 CL4N. Обновляется через бота прямо из Discord.','./#roster'],
+apply:['Хочешь к нам? Заполни заявку: ник, опыт в HVH и клип. Она сразу придёт модераторам в Discord.','./#apply'],
+dc:['Сервер клана в Discord: чат, набор, разборы матчей и общение с командой.',DC]};
+if(/blue/.test(location.search))document.body.className='blue';
+try{resizeTo(800,680)}catch(e){}
+function nm(){var n='Гость';try{n=localStorage.getItem('ldNick')||n}catch(e){}$('nick').textContent=n;$('av').textContent=n.trim().charAt(0).toUpperCase()||'?'}
+$('usr').onclick=function(){var n=prompt('Твой ник:',$('nick').textContent==='Гость'?'':$('nick').textContent);if(n!==null){try{localStorage.setItem('ldNick',n.trim().slice(0,20))}catch(e){}nm()}};nm();
+var tb=document.querySelectorAll('#tabs button');function pick(k){cur=k;$('desc').textContent=T[k][0];[].forEach.call(tb,function(b){b.classList.toggle('on',b.dataset.k===k)})}
+[].forEach.call(tb,function(b){b.onclick=function(){pick(b.dataset.k)}});pick('site');
+function get(u,ms){var t=performance.now();return Promise.race([fetch(u,{cache:'no-store'}).then(function(r){return{ok:r.status<500,ms:Math.round(performance.now()-t),r:r}}),new Promise(function(r){setTimeout(function(){r({ok:false})},ms||4000)})]).catch(function(){return{ok:false}})}
+function launch(){var u=T[cur][1];if(cur==='dc'){window.open(u,'_blank');return}try{resizeTo(1280,820);moveTo(Math.max(0,(screen.availWidth-1280)/2),Math.max(0,(screen.availHeight-820)/2))}catch(e){}location.href=u}
+$('go').onclick=function(){if(busy)return;if(!ok){location.reload();return}busy=1;var t0=Date.now(),D=1500;$('gl').textContent='Загрузка…';
+ (function f(){var k=Math.min(1,(Date.now()-t0)/D);$('gb').style.width=k*100+'%';if(k<1)requestAnimationFrame(f);else{$('gl').textContent='Готово';launch();setTimeout(function(){busy=0;$('gb').style.width=0;$('gl').textContent='Запустить'},1200)}})()};
+addEventListener('keydown',function(e){if(e.key==='Enter'&&!$('go').disabled)$('go').click()});
+(async function(){
+ var a=await get('./sw.js');
+ if(!a.ok){$('s1').textContent='Нет подключения к серверу.';$('s1').className='er';$('s2').textContent='Статус: Офлайн';$('s2').className='er';$('gl').textContent='Повторить';$('go').disabled=false;return}
+ var v='';try{var m=(await a.r.text()).match(/cl4n-v(\d+)/);if(m)v=' · build '+m[1]}catch(e){}
+ var h=await get(HUB+'/pub',3000);
+ $('s1').textContent='Вы подключены.';$('s2').className='ok';$('s2').innerHTML='Статус: <b>Онлайн</b> · '+a.ms+' ms'+v+(h.ok?'':' · хаб недоступен');
+ ok=true;$('go').disabled=false;
+})();
+</script></body></html>
