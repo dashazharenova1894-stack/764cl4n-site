@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://young-wave-cd63.764cl4n.workers.dev/sitemap.xml
