@@ -34,8 +34,9 @@ async function browserChecks() {
   /* гейт «Откуда ты заходишь?» (ПК/телефон) на первом заходе: выбираем ПК */
   if (await pg.$('#hxdev')) { await pg.click('#hxdev button[data-d="pc"]'); await pg.waitForTimeout(600); }
   await pg.mouse.click(400, 300); /* первый жест: разблокировка звука */
-  await pg.click('#mre');
   for (const s of ['news', 'poll', 'qa']) {
+    await pg.click('#mre'); /* панель закрывается после выбора пункта — открываем заново */
+    await pg.waitForTimeout(250);
     await pg.click('#mrp button[data-s="' + s + '"]');
     await pg.waitForTimeout(300);
     ok(await pg.$eval('#' + s, el => getComputedStyle(el).display !== 'none'), 'раздел «' + s + '» открывается');
