@@ -436,7 +436,7 @@ o.addEventListener('click',function(e){var c=e.target.closest('button[data-d]');
 
 <nav><div class="w">
   <div class="logo">764<span class="g">CL4N</span></div>
-  <div class="nl"><a href="#about">О команде</a><a href="#roster">Состав</a><a href="#media">Медиа</a><a href="#results">Результаты</a><a href="#apply">Заявка</a><a href="#faq">FAQ</a><a href="#app" class="dlk">Скачать</a></div>
+  <div class="nl"><a href="#about">О команде</a><a href="#roster">Состав</a><a href="#media">Медиа</a><a href="#results">Результаты</a><a href="https://cl4n-tour.764cl4n.workers.dev/" target="_blank" rel="noopener">Турниры</a><a href="#apply">Заявка</a><a href="#faq">FAQ</a><a href="#app" class="dlk">Скачать</a></div>
   <a class="btn d" href="https://discord.gg/Bf2fKNza" target="_blank" rel="noopener"><svg class="di"><use href="#dc"/></svg>Discord</a>
 </div></nav>
 
@@ -505,7 +505,7 @@ o.addEventListener('click',function(e){var c=e.target.closest('button[data-d]');
 <section id="results" class="rv"><div class="w">
   <div class="sh"><h2>Результаты HVH</h2><p>Турниры и матчи команды.</p></div>
   <div class="cd card" id="cdb"><div class="lbl">До ближайшего созвона</div><div class="num g" id="cdt">--:--:--</div></div>
-  <div class="tw"><table><thead><tr><th>Событие</th><th>Дата</th><th>Результат</th></tr></thead><tbody id="rt"></tbody></table></div>
+  <div class="tw" id="twb"><div class="lbl" style="margin-bottom:8px"><a href="https://cl4n-tour.764cl4n.workers.dev/" target="_blank" rel="noopener" style="font-weight:700">Турниры клана →</a> <small style="color:var(--mu)">регистрация, сетки, репорт счёта, ELO-рейтинг</small></div><table><thead><tr><th>Событие</th><th>Дата</th><th>Результат</th></tr></thead><tbody id="rt"></tbody></table></div>
 </div></section>
 
 <section id="events"><div class="w"><div class="sh"><h2>Ближайшие события</h2><p>Скримы, турниры и сборы клана. Время показано по твоему часовому поясу.</p></div><div class="evg" id="evg"></div></div></section>
@@ -1156,7 +1156,7 @@ $('#af').addEventListener('submit',function(e){e.preventDefault();var f=e.target
  if(!WH){navigator.clipboard&&navigator.clipboard.writeText(txt).catch(function(){});m.textContent='Заявка скопирована — вставь её в #applications в Discord.';open('https://discord.gg/Bf2fKNza','_blank');return}
  m.textContent='Отправляем...';fetch(WH,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({content:txt.slice(0,1900),allowed_mentions:{parse:[]}})}).then(function(r){if(!r.ok)throw 0;m.textContent='Заявка отправлена ✓';f.reset();try{localStorage.setItem('apT',Date.now())}catch(x){}}).catch(function(){m.textContent='Не удалось отправить. Напиши нам в Discord.'})});
 /* RU/EN */
-var D=window.__D=[['Настройки','Settings'],['Тема','Theme'],['Язык','Language'],['Синий','Blue'],['Ч/Б','B/W'],['Авто','Auto'],['Плейлист','Playlist'],['Громкость','Volume'],['Звуки интерфейса','UI sounds'],['О команде','About'],['Состав','Roster'],['Медиа','Media'],['Достижения','Achievements'],['Правила','Rules'],['Заявка','Apply'],['Вступить в команду','Join the team'],['Смотреть медиа','Watch media'],['Кто мы такие','Who we are'],['Что нас отличает','What sets us apart'],['Состав команды','Team roster'],['Результаты HVH','HVH results'],['Правила клана','Clan rules'],['Заявка в клан','Clan application'],['Отправить заявку','Send application'],['Вопросы и ответы','FAQ'],['Вступай в 764 CL4N','Join 764 CL4N'],['Присоединиться','Join'],['Активных игроков','Active players'],['Проведённых HVH','HVH played'],['Онлайн в Discord','Online on Discord'],['Сейчас на сайте','On the site now'],['Участников в Discord','Discord members'],['Копировать ник','Copy nick'],['До ближайшего созвона','Until next session'],['Что говорят о нас','What they say about us'],['Все','All'],['Музыка','Music'],['Музыка вкл','Music on'],['Событие','Event'],['Дата','Date'],['Результат','Result'],['Скоро','Soon'],['Скоро...','Soon...'],['Цвет','Color'],['Тир','Shooting range'],['Игрок','Player'],['Очки','Score'],['Начать игру','Start game'],['Твой рекорд','Your best']];
+var D=window.__D=[['Настройки','Settings'],['Тема','Theme'],['Язык','Language'],['Синий','Blue'],['Ч/Б','B/W'],['Авто','Auto'],['Плейлист','Playlist'],['Громкость','Volume'],['Звуки интерфейса','UI sounds'],['О команде','About'],['Состав','Roster'],['Медиа','Media'],['Достижения','Achievements'],['Правила','Rules'],['Заявка','Apply'],['Вступить в команду','Join the team'],['Смотреть медиа','Watch media'],['Кто мы такие','Who we are'],['Что нас отличает','What sets us apart'],['Состав команды','Team roster'],['Результаты HVH','HVH results'],['Правила клана','Clan rules'],['Заявка в клан','Clan application'],['Отправить заявку','Send application'],['Вопросы и ответы','FAQ'],['Вступай в 764 CL4N','Join 764 CL4N'],['Присоединиться','Join'],['Активных игроков','Active players'],['Проведённых HVH','HVH played'],['Онлайн в Discord','Online on Discord'],['Сейчас на сайте','On the site now'],['Участников в Discord','Discord members'],['Копировать ник','Copy nick'],['До ближайшего созвона','Until next session'],['Что говорят о нас','What they say about us'],['Все','All'],['Музыка','Music'],['Музыка вкл','Music on'],['Событие','Event'],['Дата','Date'],['Результат','Result'],['Скоро','Soon'],['Скоро...','Soon...'],['Цвет','Color'],['Тир','Shooting range'],['Игрок','Player'],['Очки','Score'],['Начать игру','Start game'],['Твой рекорд','Your best'],['Турниры','Tournaments'],['Турниры клана →','Clan tournaments →'],['регистрация, сетки, репорт счёта, ELO-рейтинг','registration, brackets, score reports, ELO rating'],['Скрим-турниры','Scrim tournaments'],['Активных турниров нет — следи за анонсами в Discord.','No active tournaments — watch for announcements on Discord.'],['Топ ELO:','Top ELO:']];
 var lg=$('#lg'),en=false;
 function tr(){var w=document.createTreeWalker(document.body,4),n,ch=[];while(n=w.nextNode()){if(n.parentNode.closest('script,style,code'))continue;ch.push(n)}
  ch.forEach(function(n){var t=n.nodeValue.trim();if(!t)return;for(var i=0;i<D.length;i++){var a=en?D[i][0]:D[i][1],b=en?D[i][1]:D[i][0];if(t===a){n.nodeValue=n.nodeValue.replace(a,b);break}}});
@@ -1181,6 +1181,28 @@ fetch(CAN+'data.json?'+Date.now(),{cache:'no-store',mode:'no-cors',signal:ctl.si
  else{t.textContent='Основной сервер клана недоступен. Открой зеркало:';a.hidden=false;a.href=CAN;a.textContent=CAN.replace(/^https?:\/\//,'')}
  el.hidden=false});
 document.getElementById('mir-x').onclick=function(){el.hidden=true};
+})();
+/* live tournaments widget: cl4n-tour worker -> блок в «Результатах» */
+(function(){
+var TU='https://cl4n-tour.764cl4n.workers.dev';
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+var host=document.getElementById('twb');if(!host)return;
+var box=document.createElement('div');box.className='uxc';box.style.marginBottom='14px';
+box.innerHTML='<h3>Скрим-турниры</h3><div id="tws"><small style="color:var(--mu)">загружаю…</small></div>';
+host.insertBefore(box,host.firstChild.nextSibling);
+fetch(TU+'/api/state',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){
+ if(!j||!j.ok)return;
+ var live=(j.tours||[]).filter(function(t){return t.state==='signup'||t.state==='live'}).slice(0,3);
+ var top=(j.ratings||[]).slice(0,3);
+ var h='';
+ if(live.length)h+=live.map(function(t){
+   var st=t.state==='signup'?'<b style="color:var(--a)">регистрация</b> ('+t.teams.length+'/'+t.size+')':'<b style="color:#3ddc84">идёт</b>';
+   return '<div style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px solid var(--bd)"><a href="'+TU+'/" target="_blank" rel="noopener" style="font-weight:700">'+esc(t.title)+'</a><span style="color:var(--mu);font-size:12px">'+st+(t.champion?' 🏆 '+esc(t.champion):'')+'</span></div>';
+ }).join('');
+ else h+='<div style="padding:4px 0;color:var(--mu);font-size:13px">Активных турниров нет — следи за анонсами в Discord.</div>';
+ if(top.length)h+='<div style="margin-top:8px;font-size:12px;color:var(--mu)">Топ ELO: '+top.map(function(x,i){return (i?' · ':'')+'<b style="color:var(--tx)">'+esc(x.team)+'</b> '+x.elo}).join('')+'</div>';
+ var s=document.getElementById('tws');if(s)s.innerHTML=h;
+}).catch(function(){var s=document.getElementById('tws');if(s)s.innerHTML='<small style="color:var(--mu)">турниры недоступны</small>'});
 })();
 /* smooth FAQ open/close */
 (function(){
