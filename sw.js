@@ -1,4 +1,4 @@
-const CACHE='cl4n-v62';
+const CACHE='cl4n-v63';
 const PRECACHE=['./','./index.html','./offline.html','./manifest.webmanifest','./community.js','./i18n.js','./i18n-x.js','./live.js','./community.css','./scroll3d.js','./more.js','./mnav.js','./install.js','./loader.js','./dl.js','./launcher.html'];
 
 self.addEventListener('install',e=>{
